@@ -26,10 +26,10 @@ export default function About() {
               muted
               loop
               className="w-full"
-              poster="https://backend.pecasonlinex.com.br/uploads/thumbnail.jpg" // Opcional: adicione uma thumbnail
+              poster="https://backend.pecasporcodigo.com.br//uploads/thumbnail.jpg" // Opcional: adicione uma thumbnail
             >
               <source
-                src="https://backend.pecasonlinex.com.br/uploads/pecas-online-pv.mp4"
+                src="https://backend.pecasporcodigo.com.br//uploads/pecas-online-pv.mp4"
                 type="video/mp4"
               />
               Seu navegador não suporta o elemento de vídeo.

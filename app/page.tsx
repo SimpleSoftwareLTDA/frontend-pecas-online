@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { Suspense, use, useCallback, useEffect, useState } from "react";
 import { TableSkeleton } from "@/components/application/SkeletonTable";
 import ProductTable from "@/components/application/ProductTable";
 import { Product } from "@/components/application/ProductTable";
@@ -25,7 +25,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [bannerSrc, setBannerSrc] = useState<string>("");
   const [additionalBanners, setAdditionalBanners] = useState<string[]>([]);
-  const [setShowVideo] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const [isShortScreen, setIsShortScreen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [inputError, setInputError] = useState("");

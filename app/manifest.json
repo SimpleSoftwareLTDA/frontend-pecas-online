@@ -1,18 +1,16 @@
 {
   "name": "Peças Por Código",
   "short_name": "PeçasOnlineX",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "pt-BR",
+  "description": "Encontre peças automotivas pelo código e conecte-se com fornecedores.",
   "icons": [
     {
-      "src": "/public/favicon.ico/web-app-manifest-192x192.png",
-      "sizes": "192x192",
+      "src": "/apple-favicon.png",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/public/favicon.ico/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#ffffff",

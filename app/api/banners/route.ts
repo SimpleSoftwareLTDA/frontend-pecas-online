@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { revalidatePath } from "next/cache";
 
 export async function GET(_req: Request) {

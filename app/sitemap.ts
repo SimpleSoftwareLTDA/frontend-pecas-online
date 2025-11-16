@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  const routes: Array<{ path: string; changeFrequency?: MetadataRoute.ChangeFrequency; priority?: number }> = [
+  const routes: Array<{ path: string; changeFrequency?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never"; priority?: number }> = [
     { path: "/", changeFrequency: "daily", priority: 1 },
     { path: "/pricing", changeFrequency: "weekly", priority: 0.8 },
     { path: "/about", changeFrequency: "monthly", priority: 0.5 },

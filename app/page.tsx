@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import React, { Suspense, use, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { TableSkeleton } from "@/components/application/SkeletonTable";
 import ProductTable from "@/components/application/ProductTable";
 import { Product } from "@/components/application/ProductTable";
@@ -25,7 +25,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [bannerSrc, setBannerSrc] = useState<string>("");
   const [additionalBanners, setAdditionalBanners] = useState<string[]>([]);
-  const [showVideo, setShowVideo] = useState(false);
+  const [setShowVideo] = useState(false);
   const [isShortScreen, setIsShortScreen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [inputError, setInputError] = useState("");
@@ -90,7 +90,7 @@ export default function Home() {
     setCurrentPage(newPage);
   };
 
-  const fetchData = async (code: string, page: number) => {
+  const fetchData = useCallback(async (code: string, page: number) => {
     setLoading(true);
 
     try {
@@ -106,7 +106,8 @@ export default function Home() {
       setProducts(data.content);
       setTotalPages(data.totalPages);
 
-      if (currentPage > data.totalPages) {
+      // Compare against the requested page to avoid stale closure dependency
+      if (page > data.totalPages) {
         setCurrentPage(0);
       }
     } catch (error) {
@@ -114,19 +115,19 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Function to shuffle an array (Fisher-Yates algorithm)
-  const shuffleArray = (array: string[]) => {
+  const shuffleArray = useCallback((array: string[]) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
     return newArray;
-  };
+  }, []);
 
-  const fetchBanner = async () => {
+  const fetchBanner = useCallback(async () => {
     try {
       // Fetch main banner from the original endpoint
       const mainBannerRes = await fetch(
@@ -154,7 +155,7 @@ export default function Home() {
     } catch (error) {
       console.error("Failed to fetch banners:", error);
     }
-  };
+  }, [shuffleArray]);
 
   useEffect(() => {
     if (!code) {
@@ -163,7 +164,7 @@ export default function Home() {
       return;
     }
     fetchData(code, currentPage);
-  }, [currentPage]);
+  }, [code, currentPage, fetchData]);
 
   useEffect(() => {
     fetchBanner();
@@ -172,7 +173,7 @@ export default function Home() {
     }, 30000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [fetchBanner]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -180,13 +181,16 @@ export default function Home() {
         {/* Main Banner */}
         {bannerSrc ? (
           <div className="relative w-full max-w-4xl mx-auto mt-4">
-            <img
+            <Image
               src={bannerSrc}
               alt="Banner promocional principal"
+              width={1200}
+              height={400}
               className={clsx("w-full h-auto object-contain mx-auto", {
                 "max-h-[140px]": isShortScreen,
                 "max-h-[200px]": !isShortScreen,
               })}
+              priority
             />
           </div>
         ) : (
@@ -203,10 +207,12 @@ export default function Home() {
           <div className="w-full max-w-4xl mx-auto mt-2 overflow-hidden">
             <div className="flex animate-marquee whitespace-nowrap">
               {additionalBanners.map((banner, index) => (
-                <img
+                <Image
                   key={index}
                   src={banner}
                   alt={`Banner promocional ${index + 2}`}
+                  width={320}
+                  height={100}
                   className={clsx("h-auto object-contain mx-2", {
                     "max-h-[60px]": isShortScreen,
                     "max-h-[80px]": !isShortScreen,

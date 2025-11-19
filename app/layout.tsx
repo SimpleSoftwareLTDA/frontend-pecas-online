@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -11,6 +12,30 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+
+export const metadata: Metadata = {
+  title: "Peças Por Código - Encontre a peça certa para o seu veículo",
+  description:
+    "Busque peças automotivas pelo código original. Encontre exatamente o que você precisa de forma rápida e precisa.",
+  keywords: ["peças automotivas", "código de peça", "carros", "mecânica", "auto peças"],
+  authors: [{ name: "Peças Por Código" }],
+  openGraph: {
+    title: "Peças Por Código - Encontre a peça certa",
+    description: "Busque peças automotivas pelo código original.",
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Peças Por Código",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Peças Por Código",
+    description: "Busque peças automotivas pelo código original.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,

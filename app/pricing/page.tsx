@@ -12,11 +12,16 @@ const PLANOS = {
 };
 
 export default async function Pricing() {
-  const planos = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/planos`)
-    .then((response) => response.json())
-    .then((data) => {
-      return data;
-    });
+  let planos = [];
+  try {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3000/api";
+    const response = await fetch(`${backendUrl}/planos`, { cache: 'no-store' });
+    if (response.ok) {
+      planos = await response.json();
+    }
+  } catch (error) {
+    console.error("Failed to fetch planos:", error);
+  }
   return (
     <section className="bg-background body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">

@@ -75,10 +75,14 @@ export default function GrafanaPlayDemo() {
 
   // Render the protected content once the token is verified
   return (
-    <iframe
-      src="http://134.65.18.212:3000/public-dashboards/d18b20e7523b434fb9629763ffb9da8f"
-      className="h-screen border-0"
-      title="Grafana Dashboard"
-    />
+    <div className="flex justify-center items-center h-screen bg-background">
+      <iframe
+        src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&from=1765735964397&to=1765736264397&panelId=4"
+        width="450"
+        height="200"
+        frameBorder="0"
+        title="Grafana Dashboard - Curva A"
+      />
+    </div>
   );
 }

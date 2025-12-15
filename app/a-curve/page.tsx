@@ -3,6 +3,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const GrafanaPanel = dynamic(() => import("@/components/application/GrafanaPanel"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full bg-muted animate-pulse" />
+  ),
+});
 
 export default function GrafanaPlayDemo() {
   const [isTokenVerified, setIsTokenVerified] = useState(false);
@@ -75,11 +83,19 @@ export default function GrafanaPlayDemo() {
 
   // Render the protected content once the token is verified
   return (
-    <main className="flex-1 w-full flex flex-col h-full min-h-[80vh]">
-      <iframe src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&refresh=5s&from=1765732472779&to=1765818872779&theme=dark&panelId=6" 
-      className="w-full flex-1"
-      frameBorder="0">  
-      </iframe>
+    <main className="flex-1 w-full flex flex-col min-h-0">
+      {/* Container ensures the panel stretches to available space between header and footer */}
+      <div className="flex-1 min-h-0">
+        <GrafanaPanel
+          baseUrl="https://obs.pecasporcodigo.com.br"
+          dashboardUid="e1g5z6a7k"
+          panelId="6"
+          title="Curva A"
+          height="100%"
+          theme="dark"
+          orgId="1"
+        />
+      </div>
     </main>
   );
 }

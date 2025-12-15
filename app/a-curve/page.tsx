@@ -79,7 +79,7 @@ export default function GrafanaPlayDemo() {
       <iframe src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&from=1765761355260&to=1765761655260&panelId=6"
           width="1200"
           height="720"
-          frameBorder="0">
+          frameborder="0">
       </iframe>
     </div>
   );

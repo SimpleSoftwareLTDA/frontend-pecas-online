@@ -76,11 +76,10 @@ export default function GrafanaPlayDemo() {
   // Render the protected content once the token is verified
   return (
     <main className="flex-1 w-full flex flex-col h-full min-h-[80vh]">
-      <iframe
-        src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&from=1765677684396&to=1765764084396&panelId=6"
-        className="w-full flex-1"
-        frameBorder="0"
-      ></iframe>
+      <iframe src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&refresh=5s&from=1765732472779&to=1765818872779&theme=dark&panelId=6" 
+      className="w-full flex-1"
+      frameBorder="0">  
+      </iframe>
     </main>
   );
 }

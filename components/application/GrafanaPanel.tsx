@@ -48,17 +48,15 @@ export default function GrafanaPanel({
   };
 
   return (
-    <div style={{ width, height }} className="relative">
+    <div style={{ width, height }} className="flex flex-col">
       {title && (
         <h3 className="text-lg font-semibold mb-3 text-gray-800">{title}</h3>
       )}
 
+      {/* Content area fills remaining height so iframe can occupy all available space */}
       <div
-        className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white"
-        style={{
-          width: "100%",
-          height: title ? "calc(100% - 2.5rem)" : "100%",
-        }}
+        className="relative flex-1 min-h-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white"
+        style={{ width: "100%" }}
       >
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-50 z-10">

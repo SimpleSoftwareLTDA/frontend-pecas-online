@@ -77,7 +77,7 @@ export default function GrafanaPlayDemo() {
   return (
     <main className="flex-1 w-full flex flex-col h-full min-h-[80vh]">
       <iframe
-        src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&from=1765677684396&to=1765764084396&panelId=6"
+        src="https://obs.pecasporcodigo.com.br/d-solo/e1g5z6a7k/pecas-por-codigo-metricas?orgId=1&from=now-9h&to=now&panelId=6"
         className="w-full flex-1"
         frameBorder="0"
       ></iframe>

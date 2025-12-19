@@ -5,13 +5,14 @@ interface GrafanaPanelProps {
   baseUrl?: string;
   dashboardUid: string;
   panelId: string;
-  title: string;
+  title?: string;
   width?: string;
   height?: string;
   from?: string;
   to?: string;
   theme?: string;
   orgId?: string;
+  frameless?: boolean;
 }
 
 // Reusable Grafana Panel component
@@ -26,6 +27,7 @@ export default function GrafanaPanel({
   to = "now",
   theme = "light",
   orgId = "1",
+  frameless = false,
 }: GrafanaPanelProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
@@ -47,6 +49,10 @@ export default function GrafanaPanel({
     setError("Failed to load panel");
   };
 
+  const containerClasses = frameless
+    ? "relative flex-1 min-h-0 overflow-hidden bg-white"
+    : "relative flex-1 min-h-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white";
+
   return (
     <div style={{ width, height }} className="flex flex-col">
       {title && (
@@ -55,7 +61,7 @@ export default function GrafanaPanel({
 
       {/* Content area fills remaining height so iframe can occupy all available space */}
       <div
-        className="relative flex-1 min-h-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white"
+        className={containerClasses}
         style={{ width: "100%" }}
       >
         {isLoading && (

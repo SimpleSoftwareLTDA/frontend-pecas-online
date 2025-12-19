@@ -89,11 +89,11 @@ export default function GrafanaPlayDemo() {
         <GrafanaPanel
           baseUrl="https://obs.pecasporcodigo.com.br"
           dashboardUid="e1g5z6a7k"
-          panelId="6"
-          title="Curva A"
+          panelId="4"
           height="100%"
           theme="dark"
           orgId="1"
+          frameless
         />
       </div>
     </main>

@@ -11,6 +11,8 @@ const PLANOS = {
   VIP: 2,
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Pricing() {
   let planos = [];
   try {

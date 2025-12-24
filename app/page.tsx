@@ -19,6 +19,7 @@ import clsx from "clsx";
 
 export default function Home() {
   const [code, setCode] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [products, setProducts] = useState<Product[]>([]);
@@ -78,11 +79,12 @@ export default function Home() {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+    setSearchTerm(value);
 
-    if (validateInput(value)) {
-      setCode(value);
-    } else {
-      return;
+    validateInput(value);
+
+    if (value === "") {
+      setCode("");
     }
   };
 
@@ -272,8 +274,13 @@ export default function Home() {
                   className="flex space-x-2"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    if (code && !inputError) {
-                      fetchData(code, currentPage);
+                    if (searchTerm && !inputError) {
+                      if (searchTerm === code) {
+                        fetchData(searchTerm, currentPage);
+                      } else {
+                        setCurrentPage(0);
+                        setCode(searchTerm);
+                      }
                     }
                   }}
                 >
@@ -285,8 +292,8 @@ export default function Home() {
                             "border-red-500 focus:border-red-500": inputError,
                           })}
                           placeholder="Digite os códigos das peças"
-                          type="search"
-                          value={code}
+                          type="text"
+                          value={searchTerm}
                           onChange={handleSearch}
                           onBlur={() => setShowTooltip(false)}
                         />

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "@/components/application/Header";
 import convertCentsToBRL from "@/utils/convertCentsToBRL";
 import { Plano } from "@/interfaces/Plano";
+import PricingSchema from "@/components/application/PricingSchema";
 
 const PLANOS = {
   BASIC: 1,
@@ -26,6 +27,7 @@ export default async function Pricing() {
   }
   return (
     <section className="bg-background body-font overflow-hidden">
+      <PricingSchema planos={planos} />
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-4xl text-4xl font-bold title-font mb-2 text-foreground mt-20">

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 
 import { FaWhatsapp } from "react-icons/fa";
+import ContactSchema from "@/components/application/ContactSchema";
 
 const formSchema = z.object({
   name: z
@@ -133,6 +134,7 @@ export default function Contact() {
 
   return (
     <section className="bg-background body-font overflow-hidden">
+      <ContactSchema />
       <div className="container px-5 py-16 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-4xl text-3xl font-bold title-font mb-2 text-foreground mt-20">

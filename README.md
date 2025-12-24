@@ -8,6 +8,7 @@ Uma plataforma para encontrar e comparar peças automotivas pelo código, conect
 
 ## ✨ Principais recursos
 - Busca de peças pelo código
+- Curva A (dashboard)
 - Cadastro e listagem de fornecedores
 - Planos e página de preços
 - Páginas institucionais (Sobre, Contato, Obrigado)

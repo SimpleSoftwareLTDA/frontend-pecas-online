@@ -43,3 +43,9 @@ next-env.d.ts
 /.idea/modules.xml
 /.idea/novo-pecas-online-frontend.iml
 /.idea/vcs.xml
+
+# gemini-cli settings
+.gemini/
+
+# GitHub App credentials
+gha-creds-*.json

@@ -21,6 +21,14 @@ export const metadata: Metadata = {
   keywords: ["peças automotivas", "código de peça", "carros", "mecânica", "auto peças"],
   authors: [{ name: "Peças Por Código" }],
   manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Peças Por Código - Encontre a peça certa",
     description: "Busque peças automotivas pelo código original.",

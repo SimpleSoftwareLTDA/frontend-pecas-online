@@ -130,21 +130,35 @@ export default function Home() {
   }, []);
 
   const fetchBanner = useCallback(async () => {
+    if (!process.env.NEXT_PUBLIC_BACKEND_URL) {
+      console.warn("NEXT_PUBLIC_BACKEND_URL não definido. Ignorando fetch de banner.");
+      return;
+    }
+
     try {
       // Fetch main banner from the original endpoint
       const mainBannerRes = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/banner`
       );
+      if (!mainBannerRes.ok) throw new Error("Main banner fetch failed");
       const mainBannerUrl = await mainBannerRes.text();
 
-      // Set the main banner
-      setBannerSrc(mainBannerUrl);
+      // Basic validation: must be an http or absolute path to not break <Image>
+      if (mainBannerUrl && (mainBannerUrl.startsWith("http") || mainBannerUrl.startsWith("/"))) {
+        setBannerSrc(mainBannerUrl);
+      }
 
       // Fetch rotating banners from the new endpoint
       const rotatingBannersRes = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/banner/all`
       );
-      const rotatingBanners = await rotatingBannersRes.json();
+      if (!rotatingBannersRes.ok) throw new Error("Rotating banners fetch failed");
+
+      const contentType = rotatingBannersRes.headers.get("content-type");
+      let rotatingBanners: string[] = [];
+      if (contentType && contentType.includes("application/json")) {
+        rotatingBanners = await rotatingBannersRes.json();
+      }
 
       console.log("Fetched rotating banners:", rotatingBanners);
 
@@ -155,7 +169,7 @@ export default function Home() {
         setAdditionalBanners([]);
       }
     } catch (error) {
-      console.error("Failed to fetch banners:", error);
+      console.warn("Failed to fetch banners, error handled gracefully:", error);
     }
   }, [shuffleArray]);
 

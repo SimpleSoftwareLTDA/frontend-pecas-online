@@ -123,36 +123,41 @@ export default function Header() {
               <Link
                 className="text-md hover:underline underline-offset-4"
                 href="/"
+                onClick={() => setOpen(false)}
               >
                 Início
               </Link>
               <Link
                 className="text-md hover:underline underline-offset-4"
                 href={"/pricing"}
+                onClick={() => setOpen(false)}
               >
                 Planos
               </Link>
               <Link
                 className="text-md hover:underline underline-offset-4"
                 href="/about"
+                onClick={() => setOpen(false)}
               >
                 Sobre
               </Link>
               <Link
                 className="text-md hover:underline underline-offset-4"
                 href="/contact"
+                onClick={() => setOpen(false)}
               >
                 Contato
               </Link>
               <Link
                 className="text-md hover:underline underline-offset-4"
                 href="/signup"
+                onClick={() => setOpen(false)}
               >
                 <Button variant="default" size="sm" className="px-4">
                   Inscreva-se
                 </Button>
               </Link>
-              <Link href={"/login"}>
+              <Link href={"/login"} onClick={() => setOpen(false)}>
                 <Button variant="outline" size="sm" className="px-4">
                   Login
                 </Button>

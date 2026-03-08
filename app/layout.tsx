@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     "Busque peças automotivas pelo código original. Encontre exatamente o que você precisa de forma rápida e precisa.",
   keywords: ["peças automotivas", "código de peça", "carros", "mecânica", "auto peças"],
   authors: [{ name: "Peças Por Código" }],
+  manifest: "/manifest.json",
   openGraph: {
     title: "Peças Por Código - Encontre a peça certa",
     description: "Busque peças automotivas pelo código original.",

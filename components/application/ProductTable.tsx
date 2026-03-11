@@ -183,7 +183,7 @@ export default function ProductTable({ products }: ProductTableProps) {
         </TooltipProvider>
       ) : (
         <p className="sm:text-center text-foreground">
-          Pesquise pelo código da peça acima
+          Pesquise pelo código da peça acima, ou pesquise por TJG115561 por exemplo
         </p>
       )}
     </div>

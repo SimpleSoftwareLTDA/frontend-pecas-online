@@ -305,7 +305,7 @@ export default function Home() {
                           className={clsx("flex-1", {
                             "border-red-500 focus:border-red-500": inputError,
                           })}
-                          placeholder="Digite os códigos das peças"
+                          placeholder="Ex: TJG115561"
                           type="text"
                           value={searchTerm}
                           onChange={handleSearch}

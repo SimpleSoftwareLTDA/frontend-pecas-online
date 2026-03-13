@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, Zap, Settings, Target } from "lucide-react";
 
@@ -11,7 +12,15 @@ export default function IntegrationsPage() {
             Integrações
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-xl text-primary font-medium">
-            Peças por Código agora é integrado ao Sistema Trillennium!
+            Peças por Código agora é integrado ao{" "}
+            <Link
+              href="https://trillennium.inf.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-primary/80"
+            >
+              Sistema Trillennium!
+            </Link>
           </p>
         </div>
 

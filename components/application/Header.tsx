@@ -77,6 +77,12 @@ export default function Header() {
         >
           Curva A
         </Link>
+        <Link
+          className="text-md hover:underline underline-offset-4"
+          href="/integrations"
+        >
+          Integrações
+        </Link>
       </nav>
       <div className="ml-auto items-center gap-2 hidden md:flex">
         <DarkModeToggle />
@@ -147,6 +153,13 @@ export default function Header() {
                 onClick={() => setOpen(false)}
               >
                 Contato
+              </Link>
+              <Link
+                className="text-md hover:underline underline-offset-4"
+                href="/integrations"
+                onClick={() => setOpen(false)}
+              >
+                Integrações
               </Link>
               <Link
                 className="text-md hover:underline underline-offset-4"

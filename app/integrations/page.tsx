@@ -86,7 +86,7 @@ export default function IntegrationsPage() {
 
         <div className="text-center mt-20 max-w-3xl mx-auto">
           <p className="text-xl font-medium text-foreground italic">
-            "Unimos a inteligência do Peças por Código com a robustez da Trillennium para que sua única preocupação seja atender bem o seu cliente."
+            &quot;Unimos a inteligência do Peças por Código com a robustez da Trillennium para que sua única preocupação seja atender bem o seu cliente.&quot;
           </p>
         </div>
       </div>

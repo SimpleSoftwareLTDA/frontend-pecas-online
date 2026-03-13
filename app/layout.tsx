@@ -7,6 +7,7 @@ import Footer from "@/components/application/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import FAQButton from "@/components/application/FAQButton";
+import IntegrationFloatingButton from "@/components/application/IntegrationFloatingButton";
 import StructuredData from "@/components/application/Schema";
 
 const poppins = Poppins({
@@ -70,6 +71,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Toaster />
+          <IntegrationFloatingButton />
           <FAQButton />
           <Footer />
         </ThemeProvider>

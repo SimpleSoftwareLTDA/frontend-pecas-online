@@ -154,6 +154,14 @@ function FAQButton() {
             </details>
             <details className="border-b border-gray-200 dark:border-gray-700">
               <summary className="py-2 cursor-pointer text-sm font-medium hover:text-emerald-600 dark:hover:text-emerald-400">
+                COMO FAZER INTEGRAÇÕES COM OUTROS SISTEMAS?
+              </summary>
+              <p className="text-sm text-gray-600 dark:text-gray-300 p-2 pb-3">
+                Atualmente temos integração com a Trillennium, porém se você usa outro programa entre em contanto com o suporte para vermos a possibilidade de automatizar com seu sistema atual.
+              </p>
+            </details>
+            <details className="border-b border-gray-200 dark:border-gray-700">
+              <summary className="py-2 cursor-pointer text-sm font-medium hover:text-emerald-600 dark:hover:text-emerald-400">
                 NÃO ENCONTROU A RESPOSTA QUE PROCURA?
               </summary>
               <p className="text-sm text-gray-600 dark:text-gray-300 p-2 pb-3">

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 interface GrafanaPanelProps {
   baseUrl?: string;
-  dashboardUid: string;
-  panelId: string;
+  dashboardUid?: string;
+  panelId?: string;
   title?: string;
   width?: string;
   height?: string;
@@ -17,14 +17,14 @@ interface GrafanaPanelProps {
 
 // Reusable Grafana Panel component
 export default function GrafanaPanel({
-  baseUrl = "https://play.grafana.org",
-  dashboardUid,
-  panelId,
+  baseUrl = "https://obs.pecasporcodigo.com.br",
+  dashboardUid = "e1g5z6a7k/metricas-da-api",
+  panelId = "6",
   title,
-  width = "100%",
-  height = "400px",
-  from = "now-6h",
-  to = "now",
+  width = "450px",
+  height = "200px",
+  from = "1773714988696",
+  to = "1773801388696",
   theme = "light",
   orgId = "1",
   frameless = false,

@@ -57,7 +57,7 @@ export default function GrafanaPlayDemo() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-          Você não possui acesso... <span className="text-primary">ainda</span>!
+          Você não possui acesso... <span className="text-primary">Ainda</span>!
         </h1>
         <p className="text-lg text-muted-foreground max-w-lg">
           Para visualizar sua curva A e ter insights valiosos para o seu
